@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  flask:
+    image: 'server_flask:0.0.7'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: serverPython
+    ports:
+    - '2222:8080'
+    entrypoint: python Server.py
+
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: '100M'
